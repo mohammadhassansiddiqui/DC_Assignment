@@ -1,0 +1,305 @@
+[
+  {
+    "id": "E1",
+    "test": "GET - retrieve all students",
+    "method": "GET",
+    "endpoint": "/students",
+    "body": null,
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "{\"101\": {\"name\": \"Ali\", \"age\": 20, \"department\": \"Computer Science\"}, \"102\": {\"name\": \"Sara\", \"age\": 21, \"department\": \"Information Technology\"}, \"103\": {\"name\": \"Ahmed\", \"age\": 22, \"department\": \"Software Engineering\"}}"
+  },
+  {
+    "id": "E2",
+    "test": "GET - retrieve student 101",
+    "method": "GET",
+    "endpoint": "/students/101",
+    "body": null,
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "{\"name\": \"Ali\", \"age\": 20, \"department\": \"Computer Science\"}"
+  },
+  {
+    "id": "E3",
+    "test": "POST - add new student Zara",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Zara",
+      "age": 20,
+      "department": "Artificial Intelligence"
+    },
+    "expected": 201,
+    "actual": 201,
+    "passed": true,
+    "response": "{\"message\": \"Student added successfully\", \"student_id\": 104, \"student\": {\"name\": \"Zara\", \"age\": 20, \"department\": \"Artificial Intelligence\"}}"
+  },
+  {
+    "id": "E4",
+    "test": "PUT - replace student 101",
+    "method": "PUT",
+    "endpoint": "/students/101",
+    "body": {
+      "name": "Ali Khan",
+      "age": 21,
+      "department": "Data Science"
+    },
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "{\"message\": \"Student updated successfully\", \"student\": {\"name\": \"Ali Khan\", \"age\": 21, \"department\": \"Data Science\"}}"
+  },
+  {
+    "id": "E5",
+    "test": "PATCH - update only age of 101",
+    "method": "PATCH",
+    "endpoint": "/students/101",
+    "body": {
+      "age": 23
+    },
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "{\"message\": \"Student partially updated\", \"student\": {\"name\": \"Ali Khan\", \"age\": 23, \"department\": \"Data Science\"}}"
+  },
+  {
+    "id": "E6",
+    "test": "DELETE - remove student 104 (Zara)",
+    "method": "DELETE",
+    "endpoint": "/students/104",
+    "body": null,
+    "expected": 204,
+    "actual": 204,
+    "passed": true,
+    "response": "(empty body)"
+  },
+  {
+    "id": "X1",
+    "test": "Add new student Hassan",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Hassan",
+      "age": 23,
+      "department": "Artificial Intelligence"
+    },
+    "expected": 201,
+    "actual": 201,
+    "passed": true,
+    "response": "{\"message\": \"Student added successfully\", \"student_id\": 104, \"student\": {\"name\": \"Hassan\", \"age\": 23, \"department\": \"Artificial Intelligence\"}}"
+  },
+  {
+    "id": "X1b",
+    "test": "Verify Hassan was added",
+    "method": "GET",
+    "endpoint": "/students/104",
+    "body": null,
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "{\"name\": \"Hassan\", \"age\": 23, \"department\": \"Artificial Intelligence\"}"
+  },
+  {
+    "id": "X2",
+    "test": "Search for student 102",
+    "method": "GET",
+    "endpoint": "/students/102",
+    "body": null,
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "{\"name\": \"Sara\", \"age\": 21, \"department\": \"Information Technology\"}"
+  },
+  {
+    "id": "X3",
+    "test": "PATCH department of 101 to Cyber Security",
+    "method": "PATCH",
+    "endpoint": "/students/101",
+    "body": {
+      "department": "Cyber Security"
+    },
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "{\"message\": \"Student partially updated\", \"student\": {\"name\": \"Ali Khan\", \"age\": 23, \"department\": \"Cyber Security\"}}"
+  },
+  {
+    "id": "X4",
+    "test": "PUT - replace complete record of 102",
+    "method": "PUT",
+    "endpoint": "/students/102",
+    "body": {
+      "name": "Sara Ahmed",
+      "age": 22,
+      "department": "Data Science"
+    },
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "{\"message\": \"Student updated successfully\", \"student\": {\"name\": \"Sara Ahmed\", \"age\": 22, \"department\": \"Data Science\"}}"
+  },
+  {
+    "id": "X5",
+    "test": "DELETE student 103",
+    "method": "DELETE",
+    "endpoint": "/students/103",
+    "body": null,
+    "expected": 204,
+    "actual": 204,
+    "passed": true,
+    "response": "(empty body)"
+  },
+  {
+    "id": "X5b",
+    "test": "Verify 103 no longer exists",
+    "method": "GET",
+    "endpoint": "/students/103",
+    "body": null,
+    "expected": 404,
+    "actual": 404,
+    "passed": true,
+    "response": "{\"detail\": \"Student not found\"}"
+  },
+  {
+    "id": "ER1",
+    "test": "Search for student 999",
+    "method": "GET",
+    "endpoint": "/students/999",
+    "body": null,
+    "expected": 404,
+    "actual": 404,
+    "passed": true,
+    "response": "{\"detail\": \"Student not found\"}"
+  },
+  {
+    "id": "ER2",
+    "test": "Age sent as text",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Bilal",
+      "age": "twenty",
+      "department": "CS"
+    },
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "response": "{\"detail\": [{\"type\": \"int_parsing\", \"loc\": [\"body\", \"age\"], \"msg\": \"Input should be a valid integer, unable to parse string as an integer\", \"input\": \"twenty\"}]}"
+  },
+  {
+    "id": "ER3",
+    "test": "POST without name field",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "age": 20,
+      "department": "CS"
+    },
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "response": "{\"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"name\"], \"msg\": \"Field required\", \"input\": {\"age\": 20, \"department\": \"CS\"}}]}"
+  },
+  {
+    "id": "ER4",
+    "test": "PUT on non-existent student 999",
+    "method": "PUT",
+    "endpoint": "/students/999",
+    "body": {
+      "name": "Ghost",
+      "age": 20,
+      "department": "CS"
+    },
+    "expected": 404,
+    "actual": 404,
+    "passed": true,
+    "response": "{\"detail\": \"Student not found\"}"
+  },
+  {
+    "id": "ER5",
+    "test": "PATCH on non-existent student 999",
+    "method": "PATCH",
+    "endpoint": "/students/999",
+    "body": {
+      "age": 25
+    },
+    "expected": 404,
+    "actual": 404,
+    "passed": true,
+    "response": "{\"detail\": \"Student not found\"}"
+  },
+  {
+    "id": "ER6",
+    "test": "PATCH with empty body {}",
+    "method": "PATCH",
+    "endpoint": "/students/101",
+    "body": {},
+    "expected": 400,
+    "actual": 400,
+    "passed": true,
+    "response": "{\"detail\": \"Invalid or empty update fields\"}"
+  },
+  {
+    "id": "ER7",
+    "test": "PATCH with unknown field",
+    "method": "PATCH",
+    "endpoint": "/students/101",
+    "body": {
+      "cgpa": 3.5
+    },
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "response": "{\"detail\": [{\"type\": \"extra_forbidden\", \"loc\": [\"body\", \"cgpa\"], \"msg\": \"Extra inputs are not permitted\", \"input\": 3.5}]}"
+  },
+  {
+    "id": "ER8",
+    "test": "DELETE non-existent student 999",
+    "method": "DELETE",
+    "endpoint": "/students/999",
+    "body": null,
+    "expected": 404,
+    "actual": 404,
+    "passed": true,
+    "response": "{\"detail\": \"Student not found\"}"
+  },
+  {
+    "id": "ER9",
+    "test": "Negative age",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Usman",
+      "age": -5,
+      "department": "CS"
+    },
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "response": "{\"detail\": [{\"type\": \"greater_than\", \"loc\": [\"body\", \"age\"], \"msg\": \"Input should be greater than 0\", \"input\": -5, \"ctx\": {\"gt\": 0}}]}"
+  },
+  {
+    "id": "ER10",
+    "test": "Non-integer student ID",
+    "method": "GET",
+    "endpoint": "/students/abc",
+    "body": null,
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "response": "{\"detail\": [{\"type\": \"int_parsing\", \"loc\": [\"path\", \"student_id\"], \"msg\": \"Input should be a valid integer, unable to parse string as an integer\", \"input\": \"abc\"}]}"
+  },
+  {
+    "id": "F1",
+    "test": "GET - final list of students",
+    "method": "GET",
+    "endpoint": "/students",
+    "body": null,
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "{\"101\": {\"name\": \"Ali Khan\", \"age\": 23, \"department\": \"Cyber Security\"}, \"102\": {\"name\": \"Sara Ahmed\", \"age\": 22, \"department\": \"Data Science\"}, \"104\": {\"name\": \"Hassan\", \"age\": 23, \"department\": \"Artificial Intelligence\"}}"
+  }
+]

@@ -1,0 +1,391 @@
+[
+  {
+    "id": "A",
+    "test": "POST - insert first student Ali",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Ali",
+      "age": 20,
+      "department": "Computer Science"
+    },
+    "expected": 201,
+    "actual": 201,
+    "passed": true,
+    "response": "{\"id\": 1, \"name\": \"Ali\", \"age\": 20, \"department\": \"Computer Science\"}"
+  },
+  {
+    "id": "B1",
+    "test": "POST - insert Sara",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Sara",
+      "age": 21,
+      "department": "Information Technology"
+    },
+    "expected": 201,
+    "actual": 201,
+    "passed": true,
+    "response": "{\"id\": 2, \"name\": \"Sara\", \"age\": 21, \"department\": \"Information Technology\"}"
+  },
+  {
+    "id": "B2",
+    "test": "POST - insert Ahmed",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Ahmed",
+      "age": 22,
+      "department": "Software Engineering"
+    },
+    "expected": 201,
+    "actual": 201,
+    "passed": true,
+    "response": "{\"id\": 3, \"name\": \"Ahmed\", \"age\": 22, \"department\": \"Software Engineering\"}"
+  },
+  {
+    "id": "C",
+    "test": "GET - retrieve all students",
+    "method": "GET",
+    "endpoint": "/students",
+    "body": null,
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "[{\"id\": 1, \"name\": \"Ali\", \"age\": 20, \"department\": \"Computer Science\"}, {\"id\": 2, \"name\": \"Sara\", \"age\": 21, \"department\": \"Information Technology\"}, {\"id\": 3, \"name\": \"Ahmed\", \"age\": 22, \"department\": \"Software Engineering\"}]"
+  },
+  {
+    "id": "D",
+    "test": "PATCH - change department of student 1",
+    "method": "PATCH",
+    "endpoint": "/students/1",
+    "body": {
+      "department": "Artificial Intelligence"
+    },
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "{\"id\": 1, \"name\": \"Ali\", \"age\": 20, \"department\": \"Artificial Intelligence\"}"
+  },
+  {
+    "id": "T1.1",
+    "test": "POST - insert Hassan",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Hassan",
+      "age": 23,
+      "department": "Artificial Intelligence"
+    },
+    "expected": 201,
+    "actual": 201,
+    "passed": true,
+    "response": "{\"id\": 4, \"name\": \"Hassan\", \"age\": 23, \"department\": \"Artificial Intelligence\"}"
+  },
+  {
+    "id": "T1.2",
+    "test": "POST - insert Fatima",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Fatima",
+      "age": 20,
+      "department": "Computer Science"
+    },
+    "expected": 201,
+    "actual": 201,
+    "passed": true,
+    "response": "{\"id\": 5, \"name\": \"Fatima\", \"age\": 20, \"department\": \"Computer Science\"}"
+  },
+  {
+    "id": "T1.3",
+    "test": "POST - insert Usman",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Usman",
+      "age": 22,
+      "department": "Cyber Security"
+    },
+    "expected": 201,
+    "actual": 201,
+    "passed": true,
+    "response": "{\"id\": 6, \"name\": \"Usman\", \"age\": 22, \"department\": \"Cyber Security\"}"
+  },
+  {
+    "id": "T1.4",
+    "test": "POST - insert Ayesha",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Ayesha",
+      "age": 21,
+      "department": "Data Science"
+    },
+    "expected": 201,
+    "actual": 201,
+    "passed": true,
+    "response": "{\"id\": 7, \"name\": \"Ayesha\", \"age\": 21, \"department\": \"Data Science\"}"
+  },
+  {
+    "id": "T1.5",
+    "test": "POST - insert Bilal",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Bilal",
+      "age": 24,
+      "department": "Computer Science"
+    },
+    "expected": 201,
+    "actual": 201,
+    "passed": true,
+    "response": "{\"id\": 8, \"name\": \"Bilal\", \"age\": 24, \"department\": \"Computer Science\"}"
+  },
+  {
+    "id": "T2a",
+    "test": "GET - retrieve all students",
+    "method": "GET",
+    "endpoint": "/students",
+    "body": null,
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "[{\"id\": 1, \"name\": \"Ali\", \"age\": 20, \"department\": \"Artificial Intelligence\"}, {\"id\": 2, \"name\": \"Sara\", \"age\": 21, \"department\": \"Information Technology\"}, {\"id\": 3, \"name\": \"Ahmed\", \"age\": 22, \"department\": \"Software Engineering\"}, {\"id\": 4, \"name\": \"Hassan\", \"age\": 23, \"department\": \"Artificial Intelligence\"}, {\"id\": 5, \"name\": \"Fatima\", \"age\": 20, \"department\": \"Computer Science\"}, {\"id\": 6, \"name\": \"Usman\", \"age\": 22, \"department\": \"Cyber Security\"}, {\"id\": 7, \"name\": \"Ayesha\", \"age\": 21, \"department\": \"Data Science\"}, {\"id\": 8, \"name\": \"Bilal\", \"age\": 24, \"department\": \"Computer Science\"}]"
+  },
+  {
+    "id": "T2b",
+    "test": "GET - retrieve student by ID 5",
+    "method": "GET",
+    "endpoint": "/students/5",
+    "body": null,
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "{\"id\": 5, \"name\": \"Fatima\", \"age\": 20, \"department\": \"Computer Science\"}"
+  },
+  {
+    "id": "T3",
+    "test": "PATCH - update department of student 2",
+    "method": "PATCH",
+    "endpoint": "/students/2",
+    "body": {
+      "department": "Cyber Security"
+    },
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "{\"id\": 2, \"name\": \"Sara\", \"age\": 21, \"department\": \"Cyber Security\"}"
+  },
+  {
+    "id": "T3b",
+    "test": "PUT - replace complete record of student 4",
+    "method": "PUT",
+    "endpoint": "/students/4",
+    "body": {
+      "name": "Hassan Raza",
+      "age": 24,
+      "department": "Data Science"
+    },
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "{\"id\": 4, \"name\": \"Hassan Raza\", \"age\": 24, \"department\": \"Data Science\"}"
+  },
+  {
+    "id": "T4",
+    "test": "DELETE - remove student 3",
+    "method": "DELETE",
+    "endpoint": "/students/3",
+    "body": null,
+    "expected": 204,
+    "actual": 204,
+    "passed": true,
+    "response": "(empty body)"
+  },
+  {
+    "id": "T4b",
+    "test": "GET - verify student 3 no longer exists",
+    "method": "GET",
+    "endpoint": "/students/3",
+    "body": null,
+    "expected": 404,
+    "actual": 404,
+    "passed": true,
+    "response": "{\"detail\": \"Student not found\"}"
+  },
+  {
+    "id": "T7a",
+    "test": "GET - students in Computer Science",
+    "method": "GET",
+    "endpoint": "/students/department/Computer Science",
+    "body": null,
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "[{\"id\": 5, \"name\": \"Fatima\", \"age\": 20, \"department\": \"Computer Science\"}, {\"id\": 8, \"name\": \"Bilal\", \"age\": 24, \"department\": \"Computer Science\"}]"
+  },
+  {
+    "id": "T7b",
+    "test": "GET - department search is case-insensitive",
+    "method": "GET",
+    "endpoint": "/students/department/data science",
+    "body": null,
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "[{\"id\": 4, \"name\": \"Hassan Raza\", \"age\": 24, \"department\": \"Data Science\"}, {\"id\": 7, \"name\": \"Ayesha\", \"age\": 21, \"department\": \"Data Science\"}]"
+  },
+  {
+    "id": "T7c",
+    "test": "GET - department with no students",
+    "method": "GET",
+    "endpoint": "/students/department/Physics",
+    "body": null,
+    "expected": 404,
+    "actual": 404,
+    "passed": true,
+    "response": "{\"detail\": \"No students found in department 'Physics'\"}"
+  },
+  {
+    "id": "ER1",
+    "test": "GET non-existent student 999",
+    "method": "GET",
+    "endpoint": "/students/999",
+    "body": null,
+    "expected": 404,
+    "actual": 404,
+    "passed": true,
+    "response": "{\"detail\": \"Student not found\"}"
+  },
+  {
+    "id": "ER2",
+    "test": "POST age sent as text",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Zain",
+      "age": "twenty",
+      "department": "CS"
+    },
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "response": "{\"detail\": [{\"type\": \"int_parsing\", \"loc\": [\"body\", \"age\"], \"msg\": \"Input should be a valid integer, unable to parse string as an integer\", \"input\": \"twenty\"}]}"
+  },
+  {
+    "id": "ER3",
+    "test": "POST without name field",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "age": 20,
+      "department": "CS"
+    },
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "response": "{\"detail\": [{\"type\": \"missing\", \"loc\": [\"body\", \"name\"], \"msg\": \"Field required\", \"input\": {\"age\": 20, \"department\": \"CS\"}}]}"
+  },
+  {
+    "id": "ER4",
+    "test": "PUT non-existent student 999",
+    "method": "PUT",
+    "endpoint": "/students/999",
+    "body": {
+      "name": "Ghost",
+      "age": 20,
+      "department": "CS"
+    },
+    "expected": 404,
+    "actual": 404,
+    "passed": true,
+    "response": "{\"detail\": \"Student not found\"}"
+  },
+  {
+    "id": "ER5",
+    "test": "PATCH non-existent student 999",
+    "method": "PATCH",
+    "endpoint": "/students/999",
+    "body": {
+      "age": 25
+    },
+    "expected": 404,
+    "actual": 404,
+    "passed": true,
+    "response": "{\"detail\": \"Student not found\"}"
+  },
+  {
+    "id": "ER6",
+    "test": "PATCH with empty body {}",
+    "method": "PATCH",
+    "endpoint": "/students/1",
+    "body": {},
+    "expected": 400,
+    "actual": 400,
+    "passed": true,
+    "response": "{\"detail\": \"No update fields provided\"}"
+  },
+  {
+    "id": "ER7",
+    "test": "PATCH with unknown field",
+    "method": "PATCH",
+    "endpoint": "/students/1",
+    "body": {
+      "cgpa": 3.5
+    },
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "response": "{\"detail\": [{\"type\": \"extra_forbidden\", \"loc\": [\"body\", \"cgpa\"], \"msg\": \"Extra inputs are not permitted\", \"input\": 3.5}]}"
+  },
+  {
+    "id": "ER8",
+    "test": "DELETE non-existent student 999",
+    "method": "DELETE",
+    "endpoint": "/students/999",
+    "body": null,
+    "expected": 404,
+    "actual": 404,
+    "passed": true,
+    "response": "{\"detail\": \"Student not found\"}"
+  },
+  {
+    "id": "ER9",
+    "test": "POST negative age",
+    "method": "POST",
+    "endpoint": "/students",
+    "body": {
+      "name": "Omar",
+      "age": -5,
+      "department": "CS"
+    },
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "response": "{\"detail\": [{\"type\": \"greater_than\", \"loc\": [\"body\", \"age\"], \"msg\": \"Input should be greater than 0\", \"input\": -5, \"ctx\": {\"gt\": 0}}]}"
+  },
+  {
+    "id": "ER10",
+    "test": "GET non-integer student ID",
+    "method": "GET",
+    "endpoint": "/students/abc",
+    "body": null,
+    "expected": 422,
+    "actual": 422,
+    "passed": true,
+    "response": "{\"detail\": [{\"type\": \"int_parsing\", \"loc\": [\"path\", \"student_id\"], \"msg\": \"Input should be a valid integer, unable to parse string as an integer\", \"input\": \"abc\"}]}"
+  },
+  {
+    "id": "F1",
+    "test": "GET - final list of students",
+    "method": "GET",
+    "endpoint": "/students",
+    "body": null,
+    "expected": 200,
+    "actual": 200,
+    "passed": true,
+    "response": "[{\"id\": 1, \"name\": \"Ali\", \"age\": 20, \"department\": \"Artificial Intelligence\"}, {\"id\": 2, \"name\": \"Sara\", \"age\": 21, \"department\": \"Cyber Security\"}, {\"id\": 4, \"name\": \"Hassan Raza\", \"age\": 24, \"department\": \"Data Science\"}, {\"id\": 5, \"name\": \"Fatima\", \"age\": 20, \"department\": \"Computer Science\"}, {\"id\": 6, \"name\": \"Usman\", \"age\": 22, \"department\": \"Cyber Security\"}, {\"id\": 7, \"name\": \"Ayesha\", \"age\": 21, \"department\": \"Data Science\"}, {\"id\": 8, \"name\": \"Bilal\", \"age\": 24, \"department\": \"Computer Science\"}]"
+  }
+]
